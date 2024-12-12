@@ -85,17 +85,42 @@ offset_left = 825.0
 offset_top = 4.0
 offset_right = 900.0
 offset_bottom = 35.0
-text = "RESTART"
+disabled = true
+text = "START"
+
+[node name="OptionButton" type="OptionButton" parent="Control"]
+layout_mode = 0
+offset_left = 653.0
+offset_top = 5.0
+offset_right = 810.0
+offset_bottom = 36.0
+item_count = 7
+selected = 6
+popup/item_0/text = "sehr einfach"
+popup/item_0/id = 0
+popup/item_1/text = "einfach"
+popup/item_1/id = 1
+popup/item_2/text = "medium"
+popup/item_2/id = 2
+popup/item_3/text = "schwierig"
+popup/item_3/id = 3
+popup/item_4/text = "sehr schwierig"
+popup/item_4/id = 4
+popup/item_5/text = "Oh Scheiße"
+popup/item_5/id = 5
+popup/item_6/text = "Schwierigkeit"
+popup/item_6/id = 6
+popup/item_6/disabled = true
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 autostart = true
 
 [node name="TimeRemaining" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 60.0
 one_shot = true
-autostart = true
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_restart_button_pressed"]
+[connection signal="item_selected" from="Control/OptionButton" to="." method="_on_option_button_item_selected"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="timeout" from="TimeRemaining" to="." method="_on_time_remaining_timeout"]

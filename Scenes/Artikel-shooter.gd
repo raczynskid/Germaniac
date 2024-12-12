@@ -3,12 +3,15 @@ extends Node2D
 var nouns = "res://Data/Nouns.csv"
 var verbs = "res://Data/Verbs.csv"
 var adjectives = "res://Data/Adjectives.csv"
-var finished = false
+var finished = true
 @onready
 var points : int = 0
 
 @export
 var limit : int
+
+@onready
+var difficulties = [50, 100, 500, 1000, 2000, 3000]
 
 @onready
 var data = LoadCsv.load_csv(nouns, limit + 1)
@@ -22,6 +25,9 @@ var die_box = $Control/HBoxContainer/die
 var das_box = $Control/HBoxContainer/das
 @onready
 var boxes = [der_box,die_box,das_box]
+
+@onready
+var box_counter : int = 0
 
 var positions = [{"free": true, "pos": [100,100]}, {"free": true, "pos": [100, 500]}, {"free": true, "pos": [100,900]},
 				 {"free": true, "pos": [300,100]}, {"free": true, "pos": [300, 500]}, {"free": true, "pos": [300,900]},
@@ -41,6 +47,9 @@ func _ready():
 func _process(delta):
 	var time_remainig = snapped($TimeRemaining.time_left, 0)
 	$Control/TimerLabel.text = "Time: " + str(time_remainig)
+	if box_counter == 0 and finished:
+		$Control/Button.visible = true
+		
 
 func get_random_lines(n : int):
 	var random_lines = []
@@ -69,6 +78,7 @@ func create_box():
 		noun_box.global_position.y = position["pos"][0]
 		noun_box.global_position.x = position["pos"][1]
 		add_child(noun_box)
+		box_counter += 1
 	
 func _input(event):
 	if Input.is_action_just_pressed("num1"):
@@ -107,17 +117,27 @@ func _on_timer_timeout():
 
 func _box_destroyed(grid_position):
 	positions[grid_position]["free"] = true
+	box_counter -= 1
 
 
 func _on_time_remaining_timeout():
 	finished = true
-	$Control/Button.visible = true
+	$Control/OptionButton.visible = true
 
 
 func _on_restart_button_pressed():
 	for position in positions:
 		position["free"] = true
+	$Control/Button.text = "RESTART"
 	$TimeRemaining.start()
 	points = 0
 	$Control/Button.visible = false
+	$Control/OptionButton.visible = false
 	finished = false
+
+
+func _on_option_button_item_selected(index):
+	limit = difficulties[index]
+	print(limit)
+	data = LoadCsv.load_csv(nouns, limit + 1)
+	$Control/Button.disabled = false
