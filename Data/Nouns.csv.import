@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://blu2uq000igdu"
+
+[deps]
+
+files=["res://Data/Nouns.noun singular.translation", "res://Data/Nouns.article plural.translation", "res://Data/Nouns.noun plural.translation", "res://Data/Nouns.meaning.translation"]
+
+source_file="res://Data/Nouns.csv"
+dest_files=["res://Data/Nouns.noun singular.translation", "res://Data/Nouns.article plural.translation", "res://Data/Nouns.noun plural.translation", "res://Data/Nouns.meaning.translation"]
+
+[params]
+
+compress=true
+delimiter=0

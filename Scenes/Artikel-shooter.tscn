@@ -1,0 +1,101 @@
+[gd_scene load_steps=2 format=3 uid="uid://xbwsdincvwpd"]
+
+[ext_resource type="Script" path="res://Scenes/Artikel-shooter.gd" id="1_xr4v2"]
+
+[node name="Artikel-shooter" type="Node2D"]
+script = ExtResource("1_xr4v2")
+limit = 10
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 140.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="der" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/der"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 68.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/der/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "der"
+
+[node name="die" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/die"]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/die/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "die"
+
+[node name="das" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/das"]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/das/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "das"
+
+[node name="ScoreLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 1065.0
+offset_top = 2.0
+offset_right = 1126.0
+offset_bottom = 25.0
+text = "Score: 0"
+
+[node name="TimerLabel" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 939.0
+offset_top = 4.0
+offset_right = 979.0
+offset_bottom = 27.0
+text = "Time: "
+
+[node name="Button" type="Button" parent="Control"]
+visible = false
+layout_mode = 0
+offset_left = 825.0
+offset_top = 4.0
+offset_right = 900.0
+offset_bottom = 35.0
+text = "RESTART"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="TimeRemaining" type="Timer" parent="."]
+wait_time = 120.0
+one_shot = true
+autostart = true
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_restart_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimeRemaining" to="." method="_on_time_remaining_timeout"]

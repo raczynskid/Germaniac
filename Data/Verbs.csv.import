@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://w0cs0yyy4hxv"
+
+[deps]
+
+files=["res://Data/Verbs.meaning.translation"]
+
+source_file="res://Data/Verbs.csv"
+dest_files=["res://Data/Verbs.meaning.translation"]
+
+[params]
+
+compress=true
+delimiter=0

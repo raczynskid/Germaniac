@@ -1,0 +1,68 @@
+[gd_scene load_steps=2 format=3 uid="uid://xbwsdincvwpd"]
+
+[ext_resource type="Script" path="res://Scenes/Artikel-shooter.gd" id="1_xr4v2"]
+
+[node name="Artikel-shooter" type="Node2D"]
+script = ExtResource("1_xr4v2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 512.0
+offset_bottom = 140.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="der" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/der"]
+layout_mode = 0
+offset_left = 28.0
+offset_right = 68.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/der/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "der"
+
+[node name="die" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/die"]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/die/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "die"
+
+[node name="das" type="ColorRect" parent="Control/HBoxContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Control/HBoxContainer/das"]
+layout_mode = 0
+offset_left = 26.0
+offset_right = 66.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/das/CenterContainer"]
+modulate = Color(0, 0, 0, 1)
+layout_mode = 2
+text = "das"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
