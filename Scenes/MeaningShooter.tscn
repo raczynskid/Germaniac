@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdlx2sv4fdgdh"]
+
+[ext_resource type="Script" path="res://Scripts/MeaningShooter.gd" id="1_0c7xk"]
+[ext_resource type="PackedScene" uid="uid://do22ka1lyfrp6" path="res://Scenes/MSCharacter.tscn" id="1_ubfyr"]
+
+[node name="MeaningShooter" type="Node2D"]
+script = ExtResource("1_0c7xk")
+limit = 1000
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_ubfyr")]
+position = Vector2(550, 316)
+
+[node name="Targets" type="Node" parent="."]

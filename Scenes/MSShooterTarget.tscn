@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://nhs6far210ya"]
+
+[ext_resource type="Script" path="res://Scripts/MSShooterTarget.gd" id="1_luuvd"]
+[ext_resource type="Texture2D" uid="uid://cjyquyhklfx6h" path="res://icon.svg" id="1_vpay8"]
+
+[node name="MsShooterTarget" type="Node2D"]
+script = ExtResource("1_luuvd")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(1.90735e-06, 1.90735e-06)
+scale = Vector2(0.554688, 0.554688)
+texture = ExtResource("1_vpay8")
+
+[node name="Label" type="Label" parent="Sprite2D"]
+offset_left = -18.0282
+offset_top = 79.3239
+offset_right = 21.9718
+offset_bottom = 102.324

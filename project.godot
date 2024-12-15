@@ -21,6 +21,10 @@ LoadCsv="*res://Scripts/load_csv.gd"
 Globals="*res://Scripts/Globals.gd"
 Signals="*res://Scripts/Signals.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [input]
 
 num1={
